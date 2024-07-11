@@ -8,7 +8,7 @@ const Home = () => {
   //          위에 h1태그는 homeRouter에 모두 적용
   return (
     <>
-      <h1>My Home Page</h1>
+      {/* <h1>My Home Page</h1> */}
       <Outlet />
     </>
   );
