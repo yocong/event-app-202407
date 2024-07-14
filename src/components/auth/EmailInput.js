@@ -18,8 +18,7 @@ const EmailInput = ({ onSuccess }) => {
     return emailPattern.test(email);
   };
 
-  // 이메일 검증 후속 처리 (이메일 패턴 검사 + 중복 검사 같이 진행)
-  // e
+  // 이메일 검증 후속 처리
   const checkEmail = debounce(async (email) => {
     if (!validateEmail(email)) {
       // 에러메시지 세팅
@@ -40,8 +39,8 @@ const EmailInput = ({ onSuccess }) => {
 
     // 이메일 중복확인 끝
     setEmailValid(true);
-    onSuccess();
-    
+    onSuccess(email);
+
   }, 1500);
 
   const changeHandler = (e) => {
