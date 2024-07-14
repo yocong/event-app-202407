@@ -3,7 +3,7 @@ import styles from './SignUpForm.module.scss';
 import { debounce } from 'lodash';
 import { AUTH_URL } from '../../config/host-config';
 
-const VerificationInput = ({ email }) => {
+const VerificationInput = ({ email, onSuccess }) => {
 
   // 여러개의 컴포넌트에 ref를 거는 방법
   const inputsRef = useRef([]);
@@ -44,6 +44,10 @@ const VerificationInput = ({ email }) => {
       inputsRef.current[0].focus();
       return;
     }
+
+    // 검증 성공 시
+    onSuccess();
+    setError('');
 
   }, 1500);
 
