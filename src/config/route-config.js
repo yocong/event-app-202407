@@ -23,7 +23,7 @@ const eventsRouter = [
   { 
     index: true, 
     element: <Events />,
-    // loader: eventListLoader,
+    // loader: eventListLoader, // loader는 최초 1번만 실행 (무한스크롤시 사용못함)
   },
   { 
     path: ':eventId', 
