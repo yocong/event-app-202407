@@ -17,7 +17,7 @@ import { action as manipulateAction }
 import WelcomePage from '../pages/WelcomePage';
 import SignUpPage from '../pages/SignUpPage';
 import { loginAction } from '../components/auth/LoginForm';
-import { userDataLoader } from './auth';
+import { authCheckLoader, userDataLoader } from './auth';
 import { logoutAction } from '../pages/Logout';
 
 
@@ -89,6 +89,7 @@ export const router = createBrowserRouter([
       {
         path: 'events',
         element: <EventLayout />,
+        loader: authCheckLoader, // eventsRouter에 대해 로그인 조건을 걺
         children: eventsRouter
       },
     ]
