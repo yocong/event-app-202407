@@ -8,7 +8,7 @@ const MainNavigation = () => {
   // route-config에서 꼭대기에 id걸어놓은것을 통해 loader를 useRouteLoaderData로 불러오면
   // 로그인한 회원의 정보 모든 페이지에서 활용가능
   const userData = useRouteLoaderData('user-data');
-  const data = useLoaderData();
+  // const data = useLoaderData();
 
   const activeFn = ({ isActive }) => {
     // NavLink 컴포넌트에 className프롭스에 함수를 전달하면
