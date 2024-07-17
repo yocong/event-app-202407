@@ -19,6 +19,7 @@ import SignUpPage from '../pages/SignUpPage';
 import { loginAction } from '../components/auth/LoginForm';
 import { authCheckLoader, userDataLoader } from './auth';
 import { logoutAction } from '../pages/Logout';
+import EventProvider from '../components/context/EventProvider';
 
 
 // 라우터 설정
@@ -88,7 +89,11 @@ export const router = createBrowserRouter([
       },
       {
         path: 'events',
-        element: <EventLayout />,
+        element: ( // EventLayout와 eventsRouter(자식들)은 EventProvider에 있는 값들을 사용가능
+          <EventProvider>
+            <EventLayout /> 
+          </EventProvider>
+        ),
         loader: authCheckLoader, // eventsRouter에 대해 로그인 조건을 걺
         children: eventsRouter
       },
